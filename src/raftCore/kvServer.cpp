@@ -92,8 +92,7 @@ void KvServer::Get(const raftKVRpcProctoc::GetArgs *args, raftKVRpcProctoc::GetR
                                  // ，虽然是预计，但是正确情况下是准确的，op的具体内容对raft来说 是隔离的
 
   if (!isLeader) {
-    reply->set_err(ErrWrongLeader);
-    return;
+    m_raftNode->FollowerRead();;//        
   }
 
   // create waitForCh
