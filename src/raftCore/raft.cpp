@@ -5,6 +5,10 @@
 #include "config.h"
 #include "util.h"
 
+void Raft::FollowerRead(){
+
+}
+
 void Raft::AppendEntries1(const raftRpcProctoc::AppendEntriesArgs* args, raftRpcProctoc::AppendEntriesReply* reply) {
   std::lock_guard<std::mutex> locker(m_mtx);
   reply->set_appstate(AppNormal);  // 能接收到代表网络是正常的

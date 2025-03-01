@@ -113,7 +113,7 @@ class Raft : public raftRpcProctoc::raftRpc {
   std::string persistData();
 
   void Start(Op command, int *newLogIndex, int *newLogTerm, bool *isLeader);
-
+  void FollowerRead();
   // Snapshot the service says it has created a snapshot that has
   // all info up to and including index. this means the
   // service no longer needs the log through (and including)
